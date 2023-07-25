@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <br>
+    <h1>Closure</h1>
+    <br>
+    <br>
+    <hr>
+    <h2>Q1 function counter(){
+        var counter = 0;
+        <br>
+        function IncreaseCounter() {
+        return counter += 1;
+        };
+        <br>
+        return IncreaseCounter;
+        }
+        <br>
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());
+    </h2>
+    <br>
+
+    <p><b>Ans
+            <br>
+            1
+            <br>
+            2
+            <br>
+            3
+            <br>
+            4
+        </b></p>
+        <hr>
+    <br>
+
+    <h2>Q2 let count = 0;<br>
+        (function () {<br>
+        if (count === 0) {<br>
+        let count = 1;<br>
+        console.log(count); // What is logged?<br>
+        }<br>
+        console.log(count); // What is logged?<br>
+        })();<br>
+    </h2>
+    <br>
+
+    <p><b>Ans <br>
+            1 <br>0
+        </b></p>
+        <hr>
+    <br>
+
+    <h2>Q3 for (var i = 0; i < 3; i++) {<br>
+            setTimeout(function log() {<br>
+            console.log(i); // What is logged?<br>
+            }, 1000);<br>
+            }</h2>
+            <br>
+
+    <p><b> Ans <br>
+            0 <br>
+            1 <br>
+            2 <br>
+        </b>
+    </p>
+    <hr>
+
+    <br>
+    <h2>Q4 Write a code to calculate area of a rectangle using inner function. In this case outer function should accept
+        parameter length and inner function should accept parameter breadth.</h2>
+        <br>
+
+    <pre><b>Ans            const calculateRectangleArea = (length) => (breadth) => length * breadth;
+
+            const lengthOfRectangle = 5;
+            const calculateAreaWithLength5 = calculateRectangleArea(lengthOfRectangle);
+            
+            const breadth1 = 10;
+            const area1 = calculateAreaWithLength5(breadth1);
+            console.log("Area 1:", area1);
+            
+            const breadth2 = 7;
+            const area2 = calculateAreaWithLength5(breadth2);
+            console.log("Area 2:", area2);</b></pre>
+            <hr>
+
+    <br>
+    <h2>Q5 Take a variable in outer function and create an inner function to increase the counter every time it is called
+    </h2>
+    <br>
+    <pre><b>Ans 
+        function createCounter() {
+            let counter = 0;
+          
+            function increaseCounter() {
+              counter++;
+              console.log("Counter:", counter);
+            }
+          
+            return increaseCounter;
+          }
+        
+          const counterFunction = createCounter();
+          
+          counterFunction(); // Output: Counter: 1
+          counterFunction(); // Output: Counter: 2
+          counterFunction(); // Output: Counter: 3
+    </b></pre>
+    <hr>
+
+    <br>
+
+    <h2>Q6 	Print Output<br>
+
+        var a = 12;<br>
+        (function () {<br>
+        alert(a);<br>
+        })();</h2>
+        <br>
+        <p><b>Ans 
+            <br>
+             12</b>
+            </p>
+             <hr>
+       <br>
+
+     <h2>Q7	var a = 10;<br>
+        var x = (function () { <br>
+        var a = 12; <br>
+        return function () { <br>
+
+        alert(a);<br>
+        };<br>
+        })();<br>
+        x();</h2>
+        <br>
+        <p>
+            <b>Ans <br>
+                12
+            </b>
+        </p>
+        <hr>
+
+        <br>
+     
+       <h2>Q8	var globalVar = "xyz";<br>
+
+        (function outerFunc(outerArg) {<br>
+        var outerVar = 'a';<br>
+        
+        (function innerFunc(innerArg) {<br>
+        var innerVar = 'b';<br>
+        
+        console.log(<br>
+        "outerArg = " + outerArg + "\n" +<br>
+        "innerArg = " + innerArg + "\n" +<br>
+        "outerVar = " + outerVar + "\n" +<br>
+        "innerVar = " + innerVar + "\n" +<br>
+        "globalVar = " + globalVar);<br>
+        
+        })(456);<br>
+        })(123);</h2>
+        
+        <br>
+        <p><b>Ans <br>
+            outerArg = 123 <br>
+            innerArg = 456 <br>
+            outerVar = a <br>
+            innerVar = b <br>
+            globalVar = xyz <br>
+        </b></p>
+
+        <hr>
+
+        <br>
+        <br>
+    
+
+
+</body>
+
+</html>
